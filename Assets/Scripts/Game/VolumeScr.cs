@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 public class VolumeScr : MonoBehaviour
 {
-    public float volume = 100f;
+    public float volume = 20f;
     public AudioSource audioSrc;
 
     void Start()
