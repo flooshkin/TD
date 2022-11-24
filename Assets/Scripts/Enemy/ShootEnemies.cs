@@ -52,8 +52,7 @@ public class ShootEnemies : MonoBehaviour
         if (other.gameObject.tag.Equals("Enemy"))
         {
             enemiesInRange.Add(other.gameObject);
-            EnemyDestructionDelegate del =
-                other.gameObject.GetComponent<EnemyDestructionDelegate>();
+            EnemyDestructionDelegate del = other.gameObject.GetComponent<EnemyDestructionDelegate>();
             del.enemyDelegate += OnEnemyDestroy;
         }
     }
@@ -63,8 +62,7 @@ public class ShootEnemies : MonoBehaviour
         if (other.gameObject.tag.Equals("Enemy"))
         {
             enemiesInRange.Remove(other.gameObject);
-            EnemyDestructionDelegate del =
-                other.gameObject.GetComponent<EnemyDestructionDelegate>();
+            EnemyDestructionDelegate del = other.gameObject.GetComponent<EnemyDestructionDelegate>();
             del.enemyDelegate -= OnEnemyDestroy;
         }
     }

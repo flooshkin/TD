@@ -11,10 +11,16 @@ public class GameManagerBehavior : MonoBehaviour
     public GameObject BountyPref;
     public Text waveLabel;
     public GameObject[] nextWaveLabels;
+    public Text waveBossesLabel;
+    public GameObject[] nextWaveBossesLabels;
     public bool gameOver = false;
     public Text healthLabel;
     public GameObject[] healthIndicator;
     public static GameManagerBehavior Instance;
+    public GameObject skill1;
+    public float CoolDawn = 0f;
+    public float Energy = 1f;
+    public Image UIEnergy;
 
     private int wave;
     public int Wave
@@ -34,6 +40,27 @@ public class GameManagerBehavior : MonoBehaviour
                 }
             }
             waveLabel.text = "WAVE: " + (wave + 1);
+        }
+    }
+
+    private int waveBosses;
+    public int WaveBosses
+    {
+        get
+        {
+            return waveBosses;
+        }
+        set
+        {
+            waveBosses = value;
+            if (!gameOver)
+            {
+                for (int i = 0; i < nextWaveBossesLabels.Length; i++)
+                {
+                    nextWaveBossesLabels[i].GetComponent<Animator>().SetTrigger("nextWave");
+                }
+            }
+            waveLabel.text = "Wave " + (wave + 1);
         }
     }
 
@@ -95,13 +122,21 @@ public class GameManagerBehavior : MonoBehaviour
 
     void Start()
     {
-        Gold = 1000;
+        Gold = 300;
         Wave = 0;
         Health = 5;
     }
 
     void Update()
     {
-
+        UIEnergy.fillAmount = Energy;
+        CoolDawn -= Time.deltaTime;
+        Energy += Time.deltaTime / 50f;
+        if (Input.GetKeyDown(KeyCode.Alpha1) & CoolDawn<0 & Energy>0.3f)
+        { 
+            Instantiate(skill1, transform.position, transform.rotation);
+            CoolDawn = 1f;
+            Energy = Energy - 0.3f;
+        }
     }
 }
