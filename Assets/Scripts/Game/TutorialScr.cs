@@ -9,4 +9,9 @@ public class TutorialScr : MonoBehaviour
         gameObject.GetComponent<Animator>().SetTrigger("displayTutorial");
     }
 
+    public void ButClick()
+    {
+
+    }
+
 }
