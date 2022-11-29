@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
@@ -17,16 +16,6 @@ public class TowerScr : MonoBehaviour
 
     public List<TowerLevel> levels;
     private TowerLevel currentLevel;
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
 
     public TowerLevel CurrentLevel
     {

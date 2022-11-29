@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShopMenuScr : MonoBehaviour
@@ -14,11 +12,6 @@ public class ShopMenuScr : MonoBehaviour
 
     private ShopMenuItemScr menuItemScr;
     private ShopMenuItemScr previousMenuItemScr;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -54,7 +47,7 @@ public class ShopMenuScr : MonoBehaviour
         ShopOn = false;
     }
 
-    public void PauseMenu()
+    public void ShopMenu()
     {
         Shop.SetActive(true);
         ShopOn = true;
@@ -63,5 +56,11 @@ public class ShopMenuScr : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+    
+    public void onClick()
+    {
+        Shop.SetActive(true);
+        ShopOn = true;
     }
 }
