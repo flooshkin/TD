@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TutorialBtn : MonoBehaviour
 {
@@ -23,11 +20,6 @@ public class TutorialBtn : MonoBehaviour
     {
         tutorial.SetActive(false);
         Show = false;
-    }
-
-    void Update()
-    {
-        if (Show);
     }
 }
 

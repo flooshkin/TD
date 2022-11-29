@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 
 public class BuyTowerScr : MonoBehaviour
 {
@@ -15,7 +13,7 @@ public class BuyTowerScr : MonoBehaviour
     }
 
 
-    void OnMouseDown()
+    public void OnClick()
     {
         towerScr.enabled = true;
         towerPanel.SetActive(false);

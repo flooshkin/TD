@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 
 public class TowerPlaceScr : MonoBehaviour
 {
@@ -14,11 +12,6 @@ public class TowerPlaceScr : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerBehavior>();
-    }
-
-    void Update()
-    {
-
     }
 
     private bool CanPlaceMonster()

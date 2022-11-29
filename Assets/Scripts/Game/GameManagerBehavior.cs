@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,7 +13,6 @@ public class GameManagerBehavior : MonoBehaviour
     public Text waveBossesLabel;
     public GameObject[] nextWaveBossesLabels;
     public bool gameOver = false;
-    public Text healthLabel;
     public GameObject[] healthIndicator;
     public static GameManagerBehavior Instance;
     public GameObject skill1;
@@ -131,12 +129,12 @@ public class GameManagerBehavior : MonoBehaviour
     {
         UIEnergy.fillAmount = Energy;
         CoolDawn -= Time.deltaTime;
-        Energy += Time.deltaTime / 50f;
+        Energy += Time.deltaTime / 100f;
         if (Input.GetKeyDown(KeyCode.Alpha1) & CoolDawn<0 & Energy>0.3f)
         { 
             Instantiate(skill1, transform.position, transform.rotation);
             CoolDawn = 1f;
-            Energy = Energy - 0.3f;
+            Energy = Energy - 0.45f;
         }
     }
 }
