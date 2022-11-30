@@ -5,7 +5,8 @@ public enum TowerType
     AOE_TOWER,
     SLOW_TOWER,
     CRIT_TOWER,
-    EPICK_TOWER
+    EPICK_TOWER,
+    STANDART_TOWER
 }
 
 public class BulletBehavior : MonoBehaviour

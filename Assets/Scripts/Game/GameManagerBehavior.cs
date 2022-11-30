@@ -7,7 +7,6 @@ public class GameManagerBehavior : MonoBehaviour
 
     public Text goldLabel;
     private int gold;
-    public GameObject BountyPref;
     public Text waveLabel;
     public GameObject[] nextWaveLabels;
     public Text waveBossesLabel;
@@ -75,14 +74,6 @@ public class GameManagerBehavior : MonoBehaviour
         }
     }
 
-    public void ShowBounty(int bounty)
-    {
-        Gold += bounty;
-        GameObject bountyObj = Instantiate(BountyPref);
-        bountyObj.transform.SetParent(GameObject.Find("Canvas").transform, false);
-        bountyObj.GetComponent<BountyScr>().SetParams(bounty);
-    }
-
     private int health;
     public int Health
     {
@@ -120,7 +111,7 @@ public class GameManagerBehavior : MonoBehaviour
 
     void Start()
     {
-        Gold = 300;
+        Gold = 1000;
         Wave = 0;
         Health = 5;
     }
@@ -129,12 +120,16 @@ public class GameManagerBehavior : MonoBehaviour
     {
         UIEnergy.fillAmount = Energy;
         CoolDawn -= Time.deltaTime;
-        Energy += Time.deltaTime / 100f;
-        if (Input.GetKeyDown(KeyCode.Alpha1) & CoolDawn<0 & Energy>0.3f)
+        if (Input.GetKeyDown(KeyCode.Alpha1) & CoolDawn<0 & Energy>0.5f)
         { 
             Instantiate(skill1, transform.position, transform.rotation);
-            CoolDawn = 1f;
-            Energy = Energy - 0.45f;
+            CoolDawn = 15f;
+            Energy = Energy - 0.5f;
+            
+        }
+        if (Energy < 1f)
+        {
+            Energy += Time.deltaTime / 100f;
         }
     }
 }

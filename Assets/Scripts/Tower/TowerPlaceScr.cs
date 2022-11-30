@@ -31,7 +31,7 @@ public class TowerPlaceScr : MonoBehaviour
             tower = (GameObject) Instantiate(towerPrefab, transform.position, Quaternion.identity);
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
             audioSource.PlayOneShot(audioSource.clip);
-
+        
             gameManager.Gold -= tower.GetComponent<TowerScr>().CurrentLevel.cost;
         }
         else if (CanUpgradeMonster())
