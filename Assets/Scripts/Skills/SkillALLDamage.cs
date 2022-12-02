@@ -52,6 +52,7 @@ public class SkillALLDamage : MonoBehaviour
                 AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
 
                 gameManager.Gold += 10;
+                ScoreMnager.score += 1;
             }
         yield return new WaitForSeconds(1.0f);
     }

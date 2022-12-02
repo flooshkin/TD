@@ -51,9 +51,18 @@ public class BulletBehavior : MonoBehaviour
                     AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
 
                     gameManager.Gold += 10;
+                    ScoreMnager.score += 1;
                 }
             }
             Destroy(gameObject);
         }
+    }
+    
+    public void CritDamage(float criticalDamage)
+    {
+        System.Random critical = new System.Random();
+        criticalDamage = critical.Next(1000, 1500);
+        damage += (int)criticalDamage;
+
     }
 }
