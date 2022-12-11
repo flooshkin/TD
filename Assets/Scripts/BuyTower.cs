@@ -49,7 +49,8 @@ public class BuyTower : MonoBehaviour
     {
         GameObject tower = Instantiate(towersPrefabs[spawnID], spawnTowerRoot);
         tower.transform.position = position;
-        
+
+        ChangeColor();
         DeselectTowers();
     }
     
@@ -61,10 +62,15 @@ public class BuyTower : MonoBehaviour
 
     public void DeselectTowers()
     {
-        spawnID = -1;
+        spawnID -= 5;
         foreach (var touch in towersUI)
         {
             touch.color = new Color(255f, 255f, 255f, 170f);
         }
+    }
+
+    public void ChangeColor()
+    {
+        towersUI[spawnID].color = new Color(255f, 255f, 255f, 170f);
     }
 }

@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BulletBehaviorStandart : BaseBullet
+{
+    protected override int TowerDamageValue()
+    {
+        return damage;
+    }
+    
+    protected override float TowerSlowValue()
+    {
+        return moveEnemy.startSpeed;
+    }
+
+    protected override void DoDamage(GameObject enemy, List<GameObject> enemiesInRange)
+    {
+        Transform healthBarTransform = enemy.transform.Find("HealthBar");
+        HealthBar healthBar = healthBarTransform.gameObject.GetComponent<HealthBar>();
+        healthBar.currentHealth -= damage;
+        if (healthBar.currentHealth <= 0)
+        {
+            Destroy(target);
+            GameObject dieEff = Instantiate(dieEffect, transform.position, Quaternion.identity);
+            Destroy(dieEff,0.3f);
+            AudioSource audioSource = target.GetComponent<AudioSource>();
+            AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
+
+            gameManager.Gold += gold;
+            ScoreMnager.score += score;
+        }
+    }
+}

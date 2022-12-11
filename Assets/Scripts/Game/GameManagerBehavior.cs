@@ -111,7 +111,7 @@ public class GameManagerBehavior : MonoBehaviour
 
     void Start()
     {
-        Gold = 1000;
+        Gold = 500;
         Wave = 0;
         Health = 5;
     }
