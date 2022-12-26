@@ -57,4 +57,8 @@ public class TowerPlaceScr : MonoBehaviour
         }
         return false;
     }
+
+    public void Select()
+    {
+    }
 }

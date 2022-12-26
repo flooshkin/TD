@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -18,6 +20,7 @@ public class GameManagerBehavior : MonoBehaviour
     public float CoolDawn = 0f;
     public float Energy = 1f;
     public Image UIEnergy;
+    private TowerPlaceScr selectedTower;
 
     private int wave;
     public int Wave
@@ -111,7 +114,11 @@ public class GameManagerBehavior : MonoBehaviour
 
     void Start()
     {
+<<<<<<< Updated upstream
         Gold = 1000;
+=======
+        Gold = 10000;
+>>>>>>> Stashed changes
         Wave = 0;
         Health = 5;
     }
@@ -121,8 +128,9 @@ public class GameManagerBehavior : MonoBehaviour
         UIEnergy.fillAmount = Energy;
         CoolDawn -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Alpha1) & CoolDawn<0 & Energy>0.5f)
-        { 
-            Instantiate(skill1, transform.position, transform.rotation);
+        {
+            Instantiate(skill1);
+            StartCoroutine(SelfDestruct());
             CoolDawn = 15f;
             Energy = Energy - 0.5f;
             
@@ -132,4 +140,37 @@ public class GameManagerBehavior : MonoBehaviour
             Energy += Time.deltaTime / 100f;
         }
     }
+
+    static void Destroy(Object obj, float t)
+    {
+        
+    }
+    
+    IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(skill1);
+    }
+
+    public void SelectTower(TowerPlaceScr tower)
+    {
+        if (selectedTower != null)
+        {
+            selectedTower.Select();
+        }
+
+        selectedTower = tower;
+
+        selectedTower.Select();
+    }
+
+    public void DeselectTower()
+    {
+        if (selectedTower != null)
+        {
+            selectedTower.Select();
+        }
+
+        selectedTower = null;
+    }    
 }
