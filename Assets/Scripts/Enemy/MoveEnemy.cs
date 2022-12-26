@@ -2,12 +2,12 @@
 
 public class MoveEnemy : MonoBehaviour
 {
-
     [HideInInspector]
     public GameObject[] waypoints;
     private int currentWaypoint = 0;
     private float lastWaypointSwitchTime;
-    public float speed = 1.0f;
+    public float speed;
+    public float startSpeed;
 
     void Start()
     {
@@ -16,12 +16,11 @@ public class MoveEnemy : MonoBehaviour
 
     void Update()
     {
-        
         Vector3 startPosition = waypoints[currentWaypoint].transform.position;
         Vector3 endPosition = waypoints[currentWaypoint + 1].transform.position;
         
         float pathLength = Vector2.Distance(startPosition, endPosition);
-        float totalTimeForPath = pathLength / speed;
+        float totalTimeForPath = pathLength / startSpeed;
         float currentTimeOnPath = Time.time - lastWaypointSwitchTime;
         gameObject.transform.position = Vector2.Lerp(startPosition, endPosition, currentTimeOnPath / totalTimeForPath);
         
@@ -48,15 +47,14 @@ public class MoveEnemy : MonoBehaviour
 
     private void RotateIntoMoveDirection()
     {
-        //1
         Vector3 newStartPosition = waypoints[currentWaypoint].transform.position;
         Vector3 newEndPosition = waypoints[currentWaypoint + 1].transform.position;
         Vector3 newDirection = (newEndPosition - newStartPosition);
-        //2
+        
         float x = newDirection.x;
         float y = newDirection.y;
         float rotationAngle = Mathf.Atan2(y, x) * 180 / Mathf.PI;
-        //3
+        
         GameObject sprite = gameObject.transform.Find("Sprite").gameObject;
         sprite.transform.rotation = Quaternion.AngleAxis(rotationAngle, Vector3.forward);
     }
@@ -77,3 +75,4 @@ public class MoveEnemy : MonoBehaviour
     }
 
 }
+

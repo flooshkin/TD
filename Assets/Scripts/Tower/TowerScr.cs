@@ -8,7 +8,7 @@ public class TowerLevel
     public GameObject visualization;
     public GameObject bullet;
     public float fireRate;
-    public TowerType skill;
+
 }
 
 public class TowerScr : MonoBehaviour

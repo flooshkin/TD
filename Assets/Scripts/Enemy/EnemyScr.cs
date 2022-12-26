@@ -2,17 +2,15 @@ using UnityEngine;
 
 public class EnemyScr : MonoBehaviour
 {
-    public float MaxHealth;
-    public int Bounty;
-    [HideInInspector]
-    public float Speed, Health, StartSpeed;
+    public static float Speed;
+    public static float StartSpeed;
 
-    public void Enemy(float health, float speed, int bounty)
+    public void Start()
     {
-        MaxHealth = Health = health;
-        StartSpeed = Speed = speed;
-        Bounty = bounty;
-
     }
 
+    public void Enemy(float health, float speed)
+    {
+      
+    }
 }

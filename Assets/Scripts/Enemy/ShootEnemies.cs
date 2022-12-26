@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class ShootEnemies : MonoBehaviour
 {
     public List<GameObject> enemiesInRange;
     private float lastShotTime;
     private TowerScr towerScr;
+    private TowerPlaceScr towerPlace;
+    public GameObject FireEff;
 
     void Start()
     {
@@ -73,16 +76,21 @@ public class ShootEnemies : MonoBehaviour
         Vector3 targetPosition = target.transform.position;
         startPosition.z = bulletPrefab.transform.position.z;
         targetPosition.z = bulletPrefab.transform.position.z;
-
+        
         GameObject newBullet = (GameObject)Instantiate(bulletPrefab);
         newBullet.transform.position = startPosition;
-        BulletBehavior bulletComp = newBullet.GetComponent<BulletBehavior>();
+        BaseBullet bulletComp = newBullet.GetComponent<BaseBullet>();
+
+        bulletComp.targetsList = enemiesInRange;
         bulletComp.target = target.gameObject;
         bulletComp.startPosition = startPosition;
         bulletComp.targetPosition = targetPosition;
-
-        Animator animator = towerScr.CurrentLevel.visualization.GetComponent<Animator>();
-        animator.SetTrigger("fireShot");
+        
+        // Если поймешь как передать координаты на префаб буду рад если починишь 3 часа убил на эту хуйню в итоге ничего не добился )))
+        // Animator animator = towerScr.CurrentLevel.visualization.GetComponent<Animator>();
+        // animator.transform.position = FireEff.transform.position;
+        // animator.SetTrigger("fireShot");
+        
         AudioSource audioSource = gameObject.GetComponent<AudioSource>();
         audioSource.PlayOneShot(audioSource.clip);
     }
