@@ -10,8 +10,10 @@ public class BuyTower : MonoBehaviour
     public Transform spawnTowerRoot;
     private int spawnID = -1;
     public Tilemap spawnTilemap;
-    public SpriteRenderer testSprite;
-
+    public SpriteRenderer spriteTower;
+    private TowerPlaceScr towerPlace;
+    private GameManagerBehavior gameManager;
+    
     private void Update()
     {
         if(CanSpawn())
@@ -37,6 +39,7 @@ public class BuyTower : MonoBehaviour
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var cellPosDefault = spawnTilemap.WorldToCell(mousePos);
             var cellPosCentered = spawnTilemap.GetCellCenterWorld(cellPosDefault);
+            
             if (spawnTilemap.GetColliderType(cellPosDefault) == Tile.ColliderType.Sprite)
             {
                 SpawnTower(cellPosCentered);
@@ -45,12 +48,26 @@ public class BuyTower : MonoBehaviour
         }
     }
 
-    void SpawnTower(Vector3 position)
+    public void SpawnTower(Vector3 position)
     {
         GameObject tower = Instantiate(towersPrefabs[spawnID], spawnTowerRoot);
         tower.transform.position = position;
+<<<<<<< Updated upstream
         
+=======
+
+
+>>>>>>> Stashed changes
         DeselectTowers();
+    }
+
+    public void LevelUp()
+    {
+        towerPlace.tower = (GameObject) Instantiate(towerPlace.towerPrefab, transform.position, Quaternion.identity);
+        AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(audioSource.clip);
+
+        gameManager.Gold -= towerPlace.tower.GetComponent<TowerScr>().CurrentLevel.cost;
     }
     
     public void SelectTower(int id)

@@ -15,7 +15,7 @@ public class TowerScr : MonoBehaviour
 {
 
     public List<TowerLevel> levels;
-    private TowerLevel currentLevel;
+    public TowerLevel currentLevel;
 
     public TowerLevel CurrentLevel
     {

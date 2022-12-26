@@ -4,8 +4,10 @@ using UnityEngine;
 public class SkillALLDamage : MonoBehaviour
 {
     public float timer = 1f;
-    public int damage = 50;
+    public int damage = 10;
     private GameObject enemy;
+    private BaseBullet baseBullet;
+    private MoveEnemy moveEnemy;
 
     private GameManagerBehavior gameManager;
 
@@ -18,14 +20,14 @@ public class SkillALLDamage : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        if(timer < 0)
+        if (timer < 0)
         {
-            Destroy(gameObject);
+            // gameManager.skill1.SetActive(false);
         }
 
     }
     
-    void OnTriggerEnter2D(Collider2D enemy)
+    void OnTriggerStay2D(Collider2D enemy)
     {
         if (enemy.gameObject.tag == "Enemy")
         {
@@ -39,7 +41,7 @@ public class SkillALLDamage : MonoBehaviour
             StopAllCoroutines();
     }
 
-    private IEnumerator ToDamage(Collider2D enemy)
+    IEnumerator ToDamage(Collider2D enemy)
     {
             Transform healthBarTransform = enemy.transform.Find("HealthBar");
             HealthBar healthBar = healthBarTransform.gameObject.GetComponent<HealthBar>();
@@ -51,7 +53,12 @@ public class SkillALLDamage : MonoBehaviour
                 AudioSource audioSource = enemy.GetComponent<AudioSource>();
                 AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
 
+<<<<<<< Updated upstream
                 gameManager.Gold += 10;
+=======
+                gameManager.Gold += baseBullet.gold;
+                ScoreMnager.score += baseBullet.score;
+>>>>>>> Stashed changes
             }
         yield return new WaitForSeconds(1.0f);
     }
