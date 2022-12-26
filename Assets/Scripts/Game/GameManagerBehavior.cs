@@ -74,7 +74,7 @@ public class GameManagerBehavior : MonoBehaviour
         }
     }
 
-    private int health;
+    private int health = 5;
     public int Health
     {
         get
@@ -124,7 +124,7 @@ public class GameManagerBehavior : MonoBehaviour
         { 
             Instantiate(skill1, transform.position, transform.rotation);
             CoolDawn = 15f;
-            Energy = Energy - 0.5f;
+            Energy -= 0.5f;
             
         }
         if (Energy < 1f)
