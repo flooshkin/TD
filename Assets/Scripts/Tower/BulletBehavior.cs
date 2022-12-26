@@ -1,3 +1,4 @@
+using Game;
 using UnityEngine;
 
 public enum TowerType
@@ -13,7 +14,7 @@ public class BulletBehavior : MonoBehaviour
 {
     public float speed = 10;
     public int damage;
-    public GameObject target;
+    public GameObject enemy;
     public Vector3 startPosition;
     public Vector3 targetPosition;
     public int bounty;
@@ -22,6 +23,7 @@ public class BulletBehavior : MonoBehaviour
     private float startTime;
 
     private GameManagerBehavior gameManager;
+    private DropManager dropManager;
 
     void Start()
     {
@@ -29,6 +31,7 @@ public class BulletBehavior : MonoBehaviour
         distance = Vector2.Distance(startPosition, targetPosition);
         GameObject gm = GameObject.Find("GameManager");
         gameManager = gm.GetComponent<GameManagerBehavior>();
+        dropManager = GameObject.Find("DropManager").GetComponent<DropManager>();
     }
     
     void Update()
@@ -38,19 +41,20 @@ public class BulletBehavior : MonoBehaviour
 
         if (gameObject.transform.position.Equals(targetPosition))
         {
-            if (target != null)
+            if (enemy != null)
             {
-                Transform healthBarTransform = target.transform.Find("HealthBar");
+                Transform healthBarTransform = enemy.transform.Find("HealthBar");
                 HealthBar healthBar = healthBarTransform.gameObject.GetComponent<HealthBar>();
                 damage = Mathf.Max(damage, 0);
                 healthBar.currentHealth -= damage;
                 if (healthBar.currentHealth <= 0)
                 {
-                    Destroy(target);
-                    AudioSource audioSource = target.GetComponent<AudioSource>();
+                    Destroy(enemy);
+                    AudioSource audioSource = enemy.GetComponent<AudioSource>();
                     AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
-
+                    
                     gameManager.Gold += 10;
+                    dropManager.DropItem(enemy);
                 }
             }
             Destroy(gameObject);

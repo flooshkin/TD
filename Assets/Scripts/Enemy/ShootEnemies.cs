@@ -77,7 +77,7 @@ public class ShootEnemies : MonoBehaviour
         GameObject newBullet = (GameObject)Instantiate(bulletPrefab);
         newBullet.transform.position = startPosition;
         BulletBehavior bulletComp = newBullet.GetComponent<BulletBehavior>();
-        bulletComp.target = target.gameObject;
+        bulletComp.enemy = target.gameObject;
         bulletComp.startPosition = startPosition;
         bulletComp.targetPosition = targetPosition;
 
