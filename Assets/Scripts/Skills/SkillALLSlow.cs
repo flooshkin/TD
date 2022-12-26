@@ -72,7 +72,7 @@ public class SkillALLSlow : MonoBehaviour
             AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
 
             gameManager.Gold += baseBullet.gold;
-            ScoreMnager.score += baseBullet.score;
+            ScoreManager.score += baseBullet.score;
         }
         yield return new WaitForSeconds(1.0f);
     }

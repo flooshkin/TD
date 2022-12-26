@@ -60,7 +60,7 @@ public class BulletBehaviorSlow : BaseBullet
                 AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
 
                 gameManager.Gold += gold;
-                ScoreMnager.score += score;
+                ScoreManager.score += score;
             }
         }
     }
