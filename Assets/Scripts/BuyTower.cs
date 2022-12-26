@@ -39,7 +39,6 @@ public class BuyTower : MonoBehaviour
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var cellPosDefault = spawnTilemap.WorldToCell(mousePos);
             var cellPosCentered = spawnTilemap.GetCellCenterWorld(cellPosDefault);
-            
             if (spawnTilemap.GetColliderType(cellPosDefault) == Tile.ColliderType.Sprite)
             {
                 SpawnTower(cellPosCentered);
@@ -52,12 +51,8 @@ public class BuyTower : MonoBehaviour
     {
         GameObject tower = Instantiate(towersPrefabs[spawnID], spawnTowerRoot);
         tower.transform.position = position;
-<<<<<<< Updated upstream
-        
-=======
 
-
->>>>>>> Stashed changes
+        ChangeColor();
         DeselectTowers();
     }
 
@@ -83,5 +78,10 @@ public class BuyTower : MonoBehaviour
         {
             touch.color = new Color(255f, 255f, 255f, 170f);
         }
+    }
+
+    public void ChangeColor()
+    {
+        towersUI[spawnID].color = new Color(255f, 255f, 255f, 170f);
     }
 }

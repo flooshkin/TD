@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Collections;
 
-public class TooltipTextUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+public class TooltipTextUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler 
+{
 	
 	public string text;
 	

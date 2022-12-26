@@ -114,11 +114,7 @@ public class GameManagerBehavior : MonoBehaviour
 
     void Start()
     {
-<<<<<<< Updated upstream
         Gold = 1000;
-=======
-        Gold = 10000;
->>>>>>> Stashed changes
         Wave = 0;
         Health = 5;
     }
