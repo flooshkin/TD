@@ -128,18 +128,13 @@ public class GameManagerBehavior : MonoBehaviour
             Instantiate(skill1);
             StartCoroutine(SelfDestruct());
             CoolDawn = 15f;
-            Energy = Energy - 0.5f;
+            Energy -= 0.5f;
             
         }
         if (Energy < 1f)
         {
             Energy += Time.deltaTime / 100f;
         }
-    }
-
-    static void Destroy(Object obj, float t)
-    {
-        
     }
     
     IEnumerator SelfDestruct()

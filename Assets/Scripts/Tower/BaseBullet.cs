@@ -40,10 +40,10 @@ public abstract class BaseBullet: MonoBehaviour
         
         gameObject.transform.position = Vector3.Lerp(startPosition, targetPosition, timeInterval * speed / distance);
         
-        //поворот снаряда в сторону врага
-        // Vector2 dir = target.transform.position - transform.position;
-        // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        // transform.rotation = Quaternion.AngleAxis(angle,Vector3.forward);
+        // поворот снаряда в сторону врага
+         // Vector2 dir = target.transform.position - transform.position;
+         // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+         // transform.rotation = Quaternion.AngleAxis(angle,Vector3.forward);
 
         if (gameObject.transform.position.Equals(targetPosition))
         {

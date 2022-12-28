@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletBehaviorStandart : BaseBullet
+public class BulletBehaviorEpick : BaseBullet
 {
     protected override int TowerDamageValue()
     {
