@@ -1,13 +1,19 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillALLDamage : MonoBehaviour
 {
-    public float timer = 1f;
-    public int damage = 50;
+    [SerializeField]
+    private float timer = 1f;
+    [SerializeField]
+    private int damage = 50;
     private GameObject enemy;
     private BaseBullet baseBullet;
-    private MoveEnemy moveEnemy;
+    [SerializeField]
+    private float CoolDawn = 0f;
+    [SerializeField]
+    private float Energy = 1f;
 
     private GameManagerBehavior gameManager;
 

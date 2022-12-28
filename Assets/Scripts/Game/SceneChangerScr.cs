@@ -7,5 +7,10 @@ public class SceneChangerScr : MonoBehaviour
     {
         SceneManager.LoadScene(sceneNumber);
     }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
 
