@@ -1,0 +1,487 @@
+fileFormatVersion: 2
+guid: 060eab229438c8b439080a97bab3a4ae
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 481
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6f3e68658a911f4098bbed70fd44027
+      internalID: -232824340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 481
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc081a3c03660848a5e03fc2d55fd33
+      internalID: 2020852901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 450
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace9bdefd2dc37345936be20fa6e3b85
+      internalID: 1844301201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_3
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 403
+        width: 48
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48d338ff0c80ec041bc696e5d701f77f
+      internalID: -1218182228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_4
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 398
+        width: 54
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b3441c7845d3149a9f31628cf93618
+      internalID: -664095747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_5
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 399
+        width: 56
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350aaea287120404da96ffa02a7ccf9f
+      internalID: -1129492620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_6
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 261
+        width: 102
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58749587a7803354e91c2b6394a8c487
+      internalID: 653548452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_7
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 450
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6851ca388434e48478c42eec4b4f9815
+      internalID: 107083649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_8
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 449
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8158de875257ee54ebd40e783c08853a
+      internalID: -2118974248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_9
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 386
+        width: 54
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaad066e1ad70c34aa0820df9d53689c
+      internalID: 2010155252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_10
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 386
+        width: 54
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e4c7a59ea7c35489a5ee0a82941e77
+      internalID: -1475474520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_11
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 261
+        width: 84
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c90fca8f161102e4aba4658183ff7bb0
+      internalID: 374465103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_12
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 259
+        width: 104
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1739b55b1f7247c49885dc6929aa25fc
+      internalID: 1949437379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_13
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 258
+        width: 74
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad753751f4e1c3f44a53dc8a1270cadc
+      internalID: 1948478040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_14
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 8
+        width: 156
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6efd9644bc4e684dbf4ed11e1dab538
+      internalID: 660282148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelArtStarshipFleetPackage_TerranFleet_Orange_15
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 8
+        width: 196
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0f5e0e596cf156409f485cc92265f91
+      internalID: 142980046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_9: 2010155252
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_1: 2020852901
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_8: -2118974248
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_6: 653548452
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_10: -1475474520
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_7: 107083649
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_4: -664095747
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_14: 660282148
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_5: -1129492620
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_2: 1844301201
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_11: 374465103
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_13: 1948478040
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_15: 142980046
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_3: -1218182228
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_0: -232824340
+      PixelArtStarshipFleetPackage_TerranFleet_Orange_12: 1949437379
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
