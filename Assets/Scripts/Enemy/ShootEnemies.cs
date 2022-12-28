@@ -83,6 +83,7 @@ public class ShootEnemies : MonoBehaviour
 
         bulletComp.targetsList = enemiesInRange;
         bulletComp.target = target.gameObject;
+        bulletComp.enemy = target.gameObject;
         bulletComp.startPosition = startPosition;
         bulletComp.targetPosition = targetPosition;
         
