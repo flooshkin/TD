@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 public abstract class BaseBullet: MonoBehaviour
@@ -9,6 +8,7 @@ public abstract class BaseBullet: MonoBehaviour
     public int damage;
     public int gold = 10;
     public int score = 1;
+    public GameObject enemy;
    
     public Vector3 startPosition;
     public Vector3 targetPosition;
@@ -22,7 +22,7 @@ public abstract class BaseBullet: MonoBehaviour
     
     private float distance;
     private float startTime;
-    
+    private DropManager dropManager;
 
     protected GameManagerBehavior gameManager;
 
@@ -32,6 +32,7 @@ public abstract class BaseBullet: MonoBehaviour
         distance = Vector2.Distance(startPosition, targetPosition);
         GameObject gm = GameObject.Find("GameManager");
         gameManager = gm.GetComponent<GameManagerBehavior>();
+        dropManager = GameObject.Find("DropManager").GetComponent<DropManager>();
     }
     
     void Update()
@@ -41,9 +42,9 @@ public abstract class BaseBullet: MonoBehaviour
         gameObject.transform.position = Vector3.Lerp(startPosition, targetPosition, timeInterval * speed / distance);
         
         // поворот снаряда в сторону врага
-         // Vector2 dir = target.transform.position - transform.position;
-         // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-         // transform.rotation = Quaternion.AngleAxis(angle,Vector3.forward);
+        // Vector2 dir = target.transform.position - transform.position;
+        // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        // transform.rotation = Quaternion.AngleAxis(angle,Vector3.forward);
 
         if (gameObject.transform.position.Equals(targetPosition))
         {
@@ -59,6 +60,11 @@ public abstract class BaseBullet: MonoBehaviour
         }
     }
 
+    protected void DropItemAfterDie()
+    {
+        dropManager.DropItem(enemy);
+    }
+    
     protected abstract int TowerDamageValue();
     
     protected abstract float TowerSlowValue();

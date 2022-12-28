@@ -56,7 +56,7 @@ public class BulletBehaviorAOE : BaseBullet
                 Destroy(dieEff,0.3f);
                 AudioSource audioSource = targetEnemy.GetComponent<AudioSource>();
                 AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
-
+                DropItemAfterDie();
                 gameManager.Gold += gold;
                 ScoreManager.score += score;
             }
