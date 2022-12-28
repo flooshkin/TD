@@ -43,7 +43,7 @@ public class BulletBehaviorCrit : BaseBullet
             Destroy(dieEff,0.3f);
             AudioSource audioSource = target.GetComponent<AudioSource>();
             AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
-
+            DropItemAfterDie();
             gameManager.Gold += gold;
             ScoreManager.score += score;
         }

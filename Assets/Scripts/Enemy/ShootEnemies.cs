@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
 public class ShootEnemies : MonoBehaviour
 {
@@ -77,10 +76,10 @@ public class ShootEnemies : MonoBehaviour
         startPosition.z = bulletPrefab.transform.position.z;
         targetPosition.z = bulletPrefab.transform.position.z;
         
-        GameObject newBullet = (GameObject)Instantiate(bulletPrefab);
+        GameObject newBullet = Instantiate(bulletPrefab);
         newBullet.transform.position = startPosition;
         BaseBullet bulletComp = newBullet.GetComponent<BaseBullet>();
-
+        
         bulletComp.targetsList = enemiesInRange;
         bulletComp.target = target.gameObject;
         bulletComp.enemy = target.gameObject;
