@@ -77,7 +77,7 @@ public class GameManagerBehavior : MonoBehaviour
         }
     }
 
-    private int health;
+    private int health = 5;
     public int Health
     {
         get
