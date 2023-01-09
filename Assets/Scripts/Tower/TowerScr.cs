@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class TowerLevel
@@ -13,6 +16,27 @@ public class TowerLevel
 
 public class TowerScr : MonoBehaviour
 {
+    [SerializeField] 
+    private Button fullPower;
+
+    private TowerLevel towerLevel;
+    
+    private void Start()
+    {
+        Button power = fullPower.GetComponent<Button>();
+        power.onClick.AddListener(TaskOnClick);
+    }
+
+    void TaskOnClick()
+    {
+        towerLevel.fireRate *= 2;
+        StartCoroutine(TimeToSkill(2f));
+    }
+
+    IEnumerator TimeToSkill(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+    }
 
     public List<TowerLevel> levels;
     public TowerLevel currentLevel;

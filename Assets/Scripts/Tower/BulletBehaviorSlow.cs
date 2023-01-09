@@ -4,7 +4,15 @@ using System.Collections.Generic;
 
 public class BulletBehaviorSlow : BaseBullet
 {
+    [SerializeField]
     public List<GameObject> enemies;
+
+    [SerializeField]
+    public Color baseColor;
+    [SerializeField]
+    public Color slowColor;
+
+    private ChangeSprite changeSprite;
 
     protected override int TowerDamageValue()
     {
@@ -23,6 +31,8 @@ public class BulletBehaviorSlow : BaseBullet
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        // GameObject sprite = gameObject.transform.Find("Sprite").gameObject;
+        // sprite.GetComponentInChildren<SpriteRenderer>().color = new Color(0.27f, 0.32f, 1f);
         if (other.gameObject.tag.Equals("Enemy"))
         {
             enemies.Add(other.gameObject);
@@ -63,6 +73,7 @@ public class BulletBehaviorSlow : BaseBullet
             }
         }
     }
+
     public float StartSlow(float duration, float slowValue)
     {
         StopCoroutine("GetSlow");

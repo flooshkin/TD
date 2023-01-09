@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class MoveEnemy : MonoBehaviour
 {
@@ -72,6 +73,29 @@ public class MoveEnemy : MonoBehaviour
             distance += Vector2.Distance(startPosition, endPosition);
         }
         return distance;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag.Equals("Bullet"))
+        {
+            GameObject sprite = gameObject.transform.Find("Sprite").gameObject;
+            sprite.GetComponentInChildren<SpriteRenderer>().color = new Color(0.35f, 0.56f, 1f);
+            StartCoroutine(TimeActive(2f));
+        }
+        if (other.gameObject.tag == "Blizzard")
+        {
+            GameObject sprite = gameObject.transform.Find("Sprite").gameObject;
+            sprite.GetComponentInChildren<SpriteRenderer>().color = new Color(0.35f, 0.56f, 1f);
+            StartCoroutine(TimeActive(2f));
+        }
+    }
+
+    IEnumerator TimeActive(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        GameObject sprite = gameObject.transform.Find("Sprite").gameObject;
+        sprite.GetComponentInChildren<SpriteRenderer>().color = Color.white;
     }
 
 }

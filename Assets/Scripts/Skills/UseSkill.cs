@@ -7,7 +7,7 @@ public class UseSkill : MonoBehaviour
     
     public void SkillActivate()
     {
-        GameObject Meteor = Instantiate(skillPrefab);
-        Destroy(Meteor, time);
+        GameObject skill = Instantiate(skillPrefab);
+        Destroy(skill, time);
     }
 }

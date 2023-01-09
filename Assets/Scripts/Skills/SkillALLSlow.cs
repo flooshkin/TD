@@ -3,18 +3,20 @@ using UnityEngine;
 
 public class SkillALLSlow : MonoBehaviour
 {
-    public float timer = 1f;
-    public int damage = 50;
+    [SerializeField]
+    private float timer = 1f;
+    [SerializeField]
+    private float damage = 0;
     private GameObject enemy;
     private BaseBullet baseBullet;
     private MoveEnemy moveEnemy;
-    private GameObject enemySprite;
-    
-    public Color startColor;
-    public Color slowColor;
-
+    [SerializeField]
+    private float CoolDawn = 1f;
+    [SerializeField]
+    private float Energy = 1f;
     private GameManagerBehavior gameManager;
-
+    
+    
     void Start()
     {
         GameObject gm = GameObject.Find("GameManager");
@@ -33,29 +35,33 @@ public class SkillALLSlow : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D enemy)
     {
+        if (enemy.gameObject.tag == "Blizzard")
+        {
+            GameObject sprite = gameObject.transform.Find("Sprite").gameObject;
+            sprite.GetComponentInChildren<SpriteRenderer>().color = new Color(0.35f, 0.56f, 1f);
+            StartCoroutine(TimeActive(2f));
+        }
+    }
+
+    IEnumerator TimeActive(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        GameObject sprite = gameObject.transform.Find("Sprite").gameObject;
+        sprite.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+    }
+
+    void OnTriggerStay2D(Collider2D enemy)
+    {
         if (enemy.gameObject.tag == "Enemy")
         {
             StartCoroutine(ToDamage(enemy));
-            enemySprite = GameObject.Find("EnemyBody");
-            enemySprite.transform.GetComponentInChildren<SpriteRenderer>().material.color= slowColor;
-            Debug.Log(enemySprite.name);
-        }
-
-        if (enemy.gameObject.tag == "Slow")
-        {
-            Color one= enemy.gameObject.GetComponent <SpriteRenderer>().color;
- 
-            gameObject.GetComponent <SpriteRenderer>().color=one;
         }
     }
 
     void OnTriggerExit2D(Collider2D enemy)
     {
         if (enemy.gameObject.tag == "Enemy")
-        {
             StopAllCoroutines();
-            transform.GetComponent<Renderer>().material.color= startColor;
-        }
     }
 
     private IEnumerator ToDamage(Collider2D enemy)
@@ -64,7 +70,6 @@ public class SkillALLSlow : MonoBehaviour
         HealthBar healthBar = healthBarTransform.gameObject.GetComponent<HealthBar>();
         damage = Mathf.Max(damage, 0);
         healthBar.currentHealth -= damage;
-        StartSlow(10f,1f);
         if (healthBar.currentHealth <= 0)
         {
             Destroy(enemy.gameObject);
@@ -73,10 +78,11 @@ public class SkillALLSlow : MonoBehaviour
 
             gameManager.Gold += baseBullet.gold;
             ScoreManager.score += baseBullet.score;
+
         }
         yield return new WaitForSeconds(1.0f);
     }
-    
+
     public void StartSlow(float duration, float slowValue)
     {
         StopCoroutine("GetSlow");
