@@ -18,7 +18,7 @@ public class BulletBehaviorCrit : BaseBullet
     {
         System.Random critical = new System.Random();
         var criticalDamage = critical.Next(1, 100);
-        if (criticalDamage <= 20)
+        if (criticalDamage <= 100)
         {
             ShowCritTxt("crit");
             return damage * 2;
@@ -51,8 +51,9 @@ public class BulletBehaviorCrit : BaseBullet
 
     public void ShowCritTxt(string crit)
     {
-        critTxt.transform.position = gameObject.transform.root.position;
-        GameObject Txt = Instantiate(critTxt);
+        // Vector3 startPosition = gameObject.transform.position;
+        // critTxt.transform.position = startPosition;
+        GameObject Txt = Instantiate(critTxt, transform.position, Quaternion.identity);
         Txt.transform.SetParent(GameObject.Find("Canvas").transform, true);
         Txt.GetComponent<CritTxt>().SetParams(crit);
     }

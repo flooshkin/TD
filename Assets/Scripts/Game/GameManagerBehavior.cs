@@ -16,11 +16,18 @@ public class GameManagerBehavior : MonoBehaviour
     public bool gameOver = false;
     public GameObject[] healthIndicator;
     public static GameManagerBehavior Instance;
-    public GameObject skill1;
     public float CoolDawn = 0f;
     public float Energy = 1f;
     public Image UIEnergy;
     private TowerPlaceScr selectedTower;
+
+    [SerializeField] 
+    private Button blizzard;
+    [SerializeField] 
+    private Button meteorRain;
+    [SerializeField] 
+    private Button fullPower;
+    
 
     private int wave;
     public int Wave
@@ -117,30 +124,32 @@ public class GameManagerBehavior : MonoBehaviour
         Gold = 1000;
         Wave = 0;
         Health = 5;
+        
+        Button meteor = meteorRain.GetComponent<Button>();
+        meteor.onClick.AddListener(TaskOnClick);
+        
+        Button bliz = blizzard.GetComponent<Button>();
+        bliz.onClick.AddListener(TaskOnClick);
+        
+        Button power = fullPower.GetComponent<Button>();
+        power.onClick.AddListener(TaskOnClick);
+    }
+
+    void TaskOnClick()
+    {
+        CoolDawn = 15f;
+        Energy -= 0.5f;
     }
 
     void Update()
     {
         UIEnergy.fillAmount = Energy;
         CoolDawn -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Alpha1) & CoolDawn<0 & Energy>0.5f)
-        {
-            Instantiate(skill1);
-            StartCoroutine(SelfDestruct());
-            CoolDawn = 15f;
-            Energy -= 0.5f;
-            
-        }
+        
         if (Energy < 1f)
         {
             Energy += Time.deltaTime / 100f;
         }
-    }
-    
-    IEnumerator SelfDestruct()
-    {
-        yield return new WaitForSeconds(5f);
-        Destroy(skill1);
     }
 
     public void SelectTower(TowerPlaceScr tower)
