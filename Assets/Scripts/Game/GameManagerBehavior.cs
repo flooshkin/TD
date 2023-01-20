@@ -20,6 +20,8 @@ public class GameManagerBehavior : MonoBehaviour
     public float Energy = 1f;
     public Image UIEnergy;
     private TowerPlaceScr selectedTower;
+    [SerializeField] 
+    private int loadSceneID;
 
     [SerializeField] 
     private Button blizzard;
@@ -103,7 +105,7 @@ public class GameManagerBehavior : MonoBehaviour
                 gameOver = true;
                 GameObject gameOverText = GameObject.FindGameObjectWithTag("GameOver");
                 gameOverText.GetComponent<Animator>().SetBool("gameOver", true);
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(loadSceneID);
             }
             for (int i = 0; i < healthIndicator.Length; i++)
             {
