@@ -13,6 +13,7 @@ public class BuyTower : MonoBehaviour
     public SpriteRenderer spriteTower;
     private TowerPlaceScr towerPlace;
     private GameManagerBehavior gameManager;
+    public List<TowerScr> listOfTowers;
     
     private void Update()
     {
@@ -47,6 +48,13 @@ public class BuyTower : MonoBehaviour
         }
     }
 
+    public void ActivateSpawnPoint()
+    {
+        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var cellPosDefault = spawnTilemap.WorldToCell(mousePos);
+        spawnTilemap.SetColliderType(cellPosDefault, Tile.ColliderType.Sprite);
+    }
+
     public void SpawnTower(Vector3 position)
     {
         GameObject tower = Instantiate(towersPrefabs[spawnID], spawnTowerRoot);
@@ -56,15 +64,6 @@ public class BuyTower : MonoBehaviour
         DeselectTowers();
     }
 
-    public void LevelUp()
-    {
-        towerPlace.tower = (GameObject) Instantiate(towerPlace.towerPrefab, transform.position, Quaternion.identity);
-        AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-        audioSource.PlayOneShot(audioSource.clip);
-
-        gameManager.Gold -= towerPlace.tower.GetComponent<TowerScr>().CurrentLevel.cost;
-    }
-    
     public void SelectTower(int id)
     {
         spawnID = id;
@@ -83,5 +82,10 @@ public class BuyTower : MonoBehaviour
     public void ChangeColor()
     {
         towersUI[spawnID].color = new Color(255f, 255f, 255f, 170f);
+    }   
+
+    public void AddPurchasedTower(TowerScr tower)
+    {
+        listOfTowers.Add(tower);
     }
 }

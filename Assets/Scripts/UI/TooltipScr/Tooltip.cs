@@ -57,7 +57,14 @@ public class Tooltip : MonoBehaviour {
 			{
 				if(hit.transform.GetComponent<TooltipText>())
 				{
-					text = hit.transform.GetComponent<TooltipText>().text;
+					if (Tutorial.RemoveButtonSelected)
+					{
+						text = "Click on tower to sell";
+					}
+					else
+					{
+						text = hit.transform.GetComponent<TooltipText>().text;
+					}
 					show = true;
 				}
 			}
@@ -69,7 +76,14 @@ public class Tooltip : MonoBehaviour {
 			{
 				if(hit.transform.GetComponent<TooltipText>())
 				{
-					text = hit.transform.GetComponent<TooltipText>().text;
+					if (Tutorial.RemoveButtonSelected)
+					{
+						text = "Click on tower to sell";
+					}
+					else
+					{
+						text = hit.transform.GetComponent<TooltipText>().text;
+					}
 					show = true;
 				}
 			}

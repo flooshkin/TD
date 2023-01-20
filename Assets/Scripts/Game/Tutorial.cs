@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
@@ -6,6 +7,9 @@ public class Tutorial : MonoBehaviour
     public GameObject tutorial;
     public GameObject tutorialText;
     public GameObject menuPanel;
+    public GameObject removeButton;
+
+    public static bool RemoveButtonSelected = false;
 
     public void onClickTutorial()
     {
@@ -14,14 +18,26 @@ public class Tutorial : MonoBehaviour
         tutorialText.SetActive(true);
         Show = true;
     }
-    
+
     public void onClickMenu()
     {
         Time.timeScale = 0f;
         menuPanel.SetActive(true);
         Show = true;
     }
-    
+
+    public void onRemoveTowerClick()
+    {
+        if (RemoveButtonSelected)
+        {
+            DeactivateRemoveState();
+        }
+        else
+        {
+            ActivateRemoveState();
+        }
+    }
+
     public void onClickBack()
     {
         menuPanel.SetActive(false);
@@ -41,4 +57,17 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    private void ActivateRemoveState()
+    {
+        RemoveButtonSelected = true;
+        removeButton.GetComponentInChildren<Text>().text = "Select tower";
+        removeButton.GetComponentInChildren<SpriteRenderer>().color = Color.gray;
+    }
+    
+    public void DeactivateRemoveState()
+    {
+        RemoveButtonSelected = false;
+        removeButton.GetComponentInChildren<Text>().text = "Sell tower";
+        removeButton.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+    }
 }
