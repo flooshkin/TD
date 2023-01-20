@@ -6,15 +6,19 @@ public class TowerPlaceScr : MonoBehaviour
     public GameObject towerPrefab;
     public GameObject tower;
     private GameManagerBehavior gameManager;
+    private BuyTower shop;
+    private Tutorial mainCamera;
 
     Tooltip tooltip;
 
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerBehavior>();
+        shop = GameObject.Find("Shop").GetComponent<BuyTower>();
+        mainCamera = GameObject.Find("Main Camera").GetComponent<Tutorial>();
     }
 
-    private bool CanPlaceMonster()
+    private bool CanPlaceTower()
     {
         if (tower != null)
         {
@@ -26,25 +30,30 @@ public class TowerPlaceScr : MonoBehaviour
 
     void OnMouseUp()
     {
-        if (CanPlaceMonster())
+        if (Tutorial.RemoveButtonSelected)
+        {
+            SellTower();
+            return;
+        }
+        if (CanPlaceTower())
         {
             tower = (GameObject) Instantiate(towerPrefab, transform.position, Quaternion.identity);
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
             audioSource.PlayOneShot(audioSource.clip);
-        
+            shop.AddPurchasedTower(tower.GetComponent<TowerScr>());
             gameManager.Gold -= tower.GetComponent<TowerScr>().CurrentLevel.cost;
         }
-        else if (CanUpgradeMonster())
+        else if (CanUpgradeTower())
         {
             tower.GetComponent<TowerScr>().IncreaseLevel();
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
             audioSource.PlayOneShot(audioSource.clip);
-
+            shop.AddPurchasedTower(tower.GetComponent<TowerScr>());
             gameManager.Gold -= tower.GetComponent<TowerScr>().CurrentLevel.cost;
         }
     }
 
-    private bool CanUpgradeMonster()
+    private bool CanUpgradeTower()
     {
         if (tower != null)
         {
@@ -60,5 +69,14 @@ public class TowerPlaceScr : MonoBehaviour
 
     public void Select()
     {
+    }
+
+    private void SellTower()
+    {
+        Destroy(tower);
+        Destroy(gameObject);
+        gameManager.Gold += tower.GetComponent<TowerScr>().CurrentLevel.cost;
+        shop.ActivateSpawnPoint();
+        mainCamera.DeactivateRemoveState();
     }
 }

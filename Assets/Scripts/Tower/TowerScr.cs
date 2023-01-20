@@ -16,21 +16,17 @@ public class TowerLevel
 
 public class TowerScr : MonoBehaviour
 {
-    [SerializeField] 
-    private Button fullPower;
-
     private TowerLevel towerLevel;
-    
-    private void Start()
-    {
-        Button power = fullPower.GetComponent<Button>();
-        power.onClick.AddListener(TaskOnClick);
-    }
 
     void TaskOnClick()
     {
         towerLevel.fireRate *= 2;
         StartCoroutine(TimeToSkill(2f));
+    }
+
+    public float GetFireRate()
+    {
+        return towerLevel.cost;
     }
 
     IEnumerator TimeToSkill(float duration)
