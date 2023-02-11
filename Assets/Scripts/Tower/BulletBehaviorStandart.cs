@@ -10,7 +10,7 @@ public class BulletBehaviorStandart : BaseBullet
     
     protected override float TowerSlowValue()
     {
-        return moveEnemy.startSpeed;
+        return moveEnemy.speed;
     }
 
     protected override void DoDamage(GameObject enemy, List<GameObject> enemiesInRange)

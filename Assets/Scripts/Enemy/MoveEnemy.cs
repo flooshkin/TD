@@ -7,11 +7,12 @@ public class MoveEnemy : MonoBehaviour
     public GameObject[] waypoints;
     private int currentWaypoint = 0;
     private float lastWaypointSwitchTime;
-    public float speed;
     public float startSpeed;
+    public float speed;
     public bool slowIsActive = false;
     [SerializeField]
     private float changingSpeed = 0.001f;
+    private float changingIncreaseSpeed = 0.0001f;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class MoveEnemy : MonoBehaviour
         Vector3 endPosition = waypoints[currentWaypoint + 1].transform.position;
         
         float pathLength = Vector2.Distance(startPosition, endPosition);
-        float totalTimeForPath = pathLength / startSpeed;
+        float totalTimeForPath = pathLength / speed;
         float currentTimeOnPath = Time.time - lastWaypointSwitchTime;
         gameObject.transform.position = Vector2.Lerp(startPosition, endPosition, currentTimeOnPath / totalTimeForPath);
         
@@ -48,13 +49,13 @@ public class MoveEnemy : MonoBehaviour
             }
         }
         
-        if (slowIsActive == true & startSpeed >= (speed - (speed*0.2f)))
+        if (slowIsActive == true & speed >= (startSpeed - (startSpeed*0.2f)))
         {
-            startSpeed -= changingSpeed;
+            speed -= changingSpeed;
         }
-        else if (slowIsActive == false & startSpeed < speed)
+        else if (slowIsActive == false & speed < startSpeed)
         {
-            startSpeed += changingSpeed;
+            speed += changingIncreaseSpeed;
         }
     }
 
@@ -89,22 +90,22 @@ public class MoveEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        var currentEnemy = other.gameObject;
-        if (other.gameObject.tag.Equals("Bullet"))
-        {
-            GameObject sprite = gameObject.transform.Find("Sprite").gameObject;
-            sprite.GetComponentInChildren<SpriteRenderer>().color = new Color(0.35f, 0.56f, 1f);
-            StartCoroutine(TimeActive(5f));
-            if (slowIsActive == false)
-            {
-                StartCoroutine(GetSlow(5f, changingSpeed));
-            }
-        }
         if (other.gameObject.tag == "Blizzard")
         {
             GameObject sprite = gameObject.transform.Find("Sprite").gameObject;
             sprite.GetComponentInChildren<SpriteRenderer>().color = new Color(0.35f, 0.56f, 1f);
             StartCoroutine(TimeActive(5f));
+        }
+    }
+
+    public void GetStartSlow()
+    {
+        GameObject sprite = gameObject.transform.Find("Sprite").gameObject;
+        sprite.GetComponentInChildren<SpriteRenderer>().color = new Color(0.35f, 0.56f, 1f);
+        StartCoroutine(TimeActive(5f));
+        if (slowIsActive == false)
+        {
+            StartCoroutine(GetSlow(5f, changingSpeed));
         }
     }
 
@@ -115,19 +116,8 @@ public class MoveEnemy : MonoBehaviour
         sprite.GetComponentInChildren<SpriteRenderer>().color = Color.white;
     }
     
-    
-
-    // public void StartSlow(float duration, float slowValue)
-    // {
-    //     if (slowIsActive == false)
-    //     {
-    //         StartCoroutine(GetSlow(duration, slowValue));
-    //     }
-    // }
-    
     IEnumerator GetSlow(float duration, float slowValue)
     {
-        startSpeed -= slowValue;
         slowIsActive = true;
         yield return new WaitForSeconds(duration);
         slowIsActive = false;

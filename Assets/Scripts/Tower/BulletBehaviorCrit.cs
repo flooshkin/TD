@@ -11,7 +11,7 @@ public class BulletBehaviorCrit : BaseBullet
 
     protected override float TowerSlowValue()
     {
-        return moveEnemy.startSpeed;
+        return moveEnemy.speed;
     }
  
     public int CritDamage()

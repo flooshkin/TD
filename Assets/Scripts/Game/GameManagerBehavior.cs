@@ -23,12 +23,13 @@ public class GameManagerBehavior : MonoBehaviour
     [SerializeField] 
     private int loadSceneID;
 
-    [SerializeField] 
-    private Button blizzard;
-    [SerializeField] 
-    private Button meteorRain;
-    [SerializeField] 
-    private Button fullPower;
+    public int HealthEnemy = 50;
+    public int HealthEnemyBosses = 200;
+    [SerializeField] private int LifeIncrease = 10;
+    [SerializeField] private int LifeIncreaseBosses = 100;
+    [SerializeField] private Button blizzard;
+    [SerializeField] private Button meteorRain;
+    [SerializeField] private Button fullPower;
     
 
     private int wave;
@@ -49,6 +50,7 @@ public class GameManagerBehavior : MonoBehaviour
                 }
             }
             waveLabel.text = "WAVE: " + (wave + 1);
+            HealthEnemy += LifeIncrease;
         }
     }
 
@@ -123,7 +125,7 @@ public class GameManagerBehavior : MonoBehaviour
 
     void Start()
     {
-        Gold = 1000;
+        Gold = 300;
         Wave = 0;
         Health = 5;
         

@@ -26,6 +26,11 @@ public class Tutorial : MonoBehaviour
         Show = true;
     }
 
+    public void onClickExit()
+    {
+        Application.Quit();
+    }
+
     public void onRemoveTowerClick()
     {
         if (RemoveButtonSelected)
@@ -51,7 +56,7 @@ public class Tutorial : MonoBehaviour
         {
             tutorial.SetActive(false);
             tutorialText.SetActive(false);
-            menuPanel.SetActive(false);
+            // menuPanel.SetActive(false);
             Show = false;
             Time.timeScale = 1f;
         }

@@ -30,32 +30,26 @@ public class BulletBehaviorSlow : BaseBullet
         enemies.Remove(enemy);
     }
 
+
     void OnTriggerEnter2D(Collider2D other)
     {
         var currentEnemy = other.gameObject;
         if (currentEnemy.tag.Equals("Enemy"))
         {
-            // StartSlow(1f,1f, currentEnemy.GetComponent<MoveEnemy>());
+            // if (gameObject.transform.position.Equals(targetPosition))
+            // {
+            //     if (target != null)
+            //     {
+            //         var enemy = currentEnemy.GetComponent<MoveEnemy>();
+            //         enemy.GetStartSlow();
+            //     }
+            // }
+
             enemies.Add(other.gameObject);
             EnemyDestructionDelegate del = other.gameObject.GetComponent<EnemyDestructionDelegate>();
-            // TimeToSlow(currentEnemy);
             del.enemyDelegate += OnEnemyDestroy;
         }
     }
-
-    // public void TimeToSlow(GameObject currentEnemy)
-    // {
-    //     StartSlow(5f,0.005f, currentEnemy.GetComponent<MoveEnemy>());
-    // }
-
-    // private void OnTriggerStay2D(Collider2D other)
-    // {
-    //     var currentEnemy = other.gameObject;
-    //     if (currentEnemy.tag.Equals("Enemy"))
-    //     {
-    //         StartSlow(5f,0.005f, currentEnemy.GetComponent<MoveEnemy>());
-    //     }
-    // }
 
     void OnTriggerExit2D(Collider2D other)
     {
@@ -76,6 +70,8 @@ public class BulletBehaviorSlow : BaseBullet
             Transform healthBarTransform = targetEnemy.transform.Find("HealthBar");
             HealthBar healthBar = healthBarTransform.gameObject.GetComponent<HealthBar>();
             healthBar.currentHealth -= damage;
+            var target = targetEnemy.GetComponent<MoveEnemy>();
+            target.GetStartSlow();
             if (healthBar.currentHealth <= 0)
             {
                 Destroy(targetEnemy);
@@ -89,22 +85,4 @@ public class BulletBehaviorSlow : BaseBullet
             }
         }
     }
-
-    // public void StartSlow(float duration, float slowValue, MoveEnemy currentEnemy)
-    // {
-    //     if (currentEnemy.slowIsActive == false)
-    //     {
-    //         StartCoroutine(GetSlow(duration, slowValue, currentEnemy));
-    //     }
-    // }
-    //
-    // IEnumerator GetSlow(float duration, float slowValue, MoveEnemy currentEnemy)
-    // {
-    //     float oldSpeed = currentEnemy.startSpeed;
-    //     currentEnemy.startSpeed -= slowValue;
-    //     currentEnemy.slowIsActive = true;
-    //     yield return new WaitForSeconds(duration);
-    //     currentEnemy.startSpeed = oldSpeed;
-    //     currentEnemy.slowIsActive = false;
-    // }
 }

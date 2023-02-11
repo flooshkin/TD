@@ -2,13 +2,17 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    public float maxHealth = 100;
-    public float currentHealth = 100;
+    GameManagerBehavior gameManager;
+    public float maxHealth;
+    public float currentHealth;
     private float originalScale;
 
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManagerBehavior>();
         originalScale = gameObject.transform.localScale.x;
+        maxHealth = gameManager.HealthEnemy;
+        currentHealth = gameManager.HealthEnemy;
     }
 
     void Update()

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class Wave
@@ -13,7 +13,6 @@ public class SpawnEnemy : MonoBehaviour
 {
 
     public GameObject[] waypoints;
-    public GameObject testEnemyPrefab;
 
     public Wave[] waves;
     public int timeBetweenWaves = 5;
@@ -29,7 +28,7 @@ public class SpawnEnemy : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerBehavior>();
     }
 
-    void Update()
+    public void Update()
     {
         int currentWave = gameManager.Wave;
         if (currentWave < waves.Length)

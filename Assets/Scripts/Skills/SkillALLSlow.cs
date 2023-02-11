@@ -86,14 +86,14 @@ public class SkillALLSlow : MonoBehaviour
     public void StartSlow(float duration, float slowValue)
     {
         StopCoroutine("GetSlow");
-        moveEnemy.speed = moveEnemy.startSpeed;
+        moveEnemy.startSpeed = moveEnemy.speed;
         StartCoroutine(GetSlow(duration, slowValue));
     }
 
     IEnumerator GetSlow(float duration, float slowValue)
     {
-        moveEnemy.speed -= slowValue;
+        moveEnemy.startSpeed -= slowValue;
         yield return new WaitForSeconds(duration);
-        moveEnemy.speed = moveEnemy.startSpeed;
+        moveEnemy.startSpeed = moveEnemy.speed;
     }
 }
