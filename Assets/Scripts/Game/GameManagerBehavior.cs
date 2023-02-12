@@ -16,7 +16,6 @@ public class GameManagerBehavior : MonoBehaviour
     public bool gameOver = false;
     public GameObject[] healthIndicator;
     public static GameManagerBehavior Instance;
-    public float CoolDawn = 0f;
     public float Energy = 1f;
     public Image UIEnergy;
     private TowerPlaceScr selectedTower;
@@ -128,28 +127,11 @@ public class GameManagerBehavior : MonoBehaviour
         Gold = 300;
         Wave = 0;
         Health = 5;
-        
-        Button meteor = meteorRain.GetComponent<Button>();
-        meteor.onClick.AddListener(TaskOnClick);
-        
-        Button bliz = blizzard.GetComponent<Button>();
-        bliz.onClick.AddListener(TaskOnClick);
-        
-        Button power = fullPower.GetComponent<Button>();
-        power.onClick.AddListener(TaskOnClick);
-    }
-
-    void TaskOnClick()
-    {
-        CoolDawn = 15f;
-        Energy -= 0.5f;
     }
 
     void Update()
     {
         UIEnergy.fillAmount = Energy;
-        CoolDawn -= Time.deltaTime;
-        
         if (Energy < 1f)
         {
             Energy += Time.deltaTime / 100f;

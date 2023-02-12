@@ -43,19 +43,21 @@ public class DropManager : MonoBehaviour
         {
             case 0:
             {
-                if (gameManager.Health == maxHealth)
+                if (gameManager.Health < maxHealth)
+                {
+                    return healthPrefab;
+                }
+                else
                 {
                     return null;
                 }
-
-                return healthPrefab;
             }
             case 1:
             {
                 return energyPrefab;
             }
             default:
-                return healthPrefab;
+                return null;
         }
     }
 }

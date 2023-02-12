@@ -26,7 +26,10 @@ namespace drop
             var triggeredObject = col.gameObject.tag;
             if (triggeredObject.Equals("EnergyPosition"))
             {
-                gameManager.Energy += EnergyAmount;
+                if (gameManager.Energy <= 1f)
+                {
+                    gameManager.Energy += EnergyAmount;
+                }
                 Destroy(gameObject);
             }
         }

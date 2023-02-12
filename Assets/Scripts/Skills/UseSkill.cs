@@ -13,12 +13,11 @@ public class UseSkill : MonoBehaviour
 
     public void SkillActivate()
     {
-        GameObject skill = Instantiate(skillPrefab);
-        Destroy(skill, time);
-
         if (gameManager.Energy >= 0.5f)
         {
             gameManager.Energy -= 0.5f;
+            GameObject skill = Instantiate(skillPrefab);
+            Destroy(skill, time);
         }
     }
 }
